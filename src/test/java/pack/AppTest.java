@@ -2,6 +2,7 @@ package pack;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
@@ -33,5 +34,11 @@ public class AppTest {
 		driver.get(url);
 		reports.flush();
 		
+	}
+	
+	@AfterTest
+	public static void close() {
+		driver.close();
+		driver.quit();
 	}
 }
